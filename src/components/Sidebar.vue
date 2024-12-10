@@ -1,6 +1,6 @@
 <template>
     <div>
-        <button @click="toggleSidebar" class="toggle-button">
+        <button v-if="!isSidebarOpen" @click="toggleSidebar" class="toggle-button">
             <i class="fa-solid fa-bars"></i>
         </button>
 
@@ -8,11 +8,14 @@
             <div class="flex flex-col h-screen p-3 bg-white shadow w-60">
                 <div class="space-y-3">
                     <div class="flex items-center mb-4">
-                        <h2 class="text-xl font-bold flex-1">Dashboard</h2> <!-- Flex-1 untuk memberi ruang -->
+                        <h2 class="text-xl font-bold flex-1">Dashboard</h2>
                         <RouterLink to="/account" class="ml-2">
                             <img src="/assets/images/avatar.png" alt="User  Avatar"
                                 class="rounded-full w-10 h-10 border-2 border-gray-300 cursor-pointer" />
                         </RouterLink>
+                        <button v-if="isSidebarOpen" @click="toggleSidebar" class="toggle-button">
+                            <i class="fa-solid fa-bars"></i>
+                        </button>
                     </div>
                     <div class="flex-1">
                         <ul class="pt-2 pb-4 space-y-1 text-sm">
